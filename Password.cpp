@@ -3,13 +3,11 @@
 #include "String.h"
 #include "ListArrayIterator.h"
 using CSC2110::ListArrayIterator;
-
-#include <iostream>
-using namespace std;
-
 using CSC2110::String;
 using CSC2110::ListArray;
 
+#include <iostream>
+using namespace std;
 
 Password::Password()
 {

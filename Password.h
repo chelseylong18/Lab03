@@ -1,7 +1,7 @@
 #if !defined PASSWORD_H
 #define PASSWORD_H
 
-#include "Text.h"
+#include "String.h"
 #include "ListArray.h"
 
 //complete the includes
