@@ -1,8 +1,9 @@
 #if !defined PASSWORD_H
 #define PASSWORD_H
 
-#include "String.h"
-//#include "ListArray.h"
+#include "Text.h"
+#include "ListArray.h"
+
 //complete the includes
 
 class Password

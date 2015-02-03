@@ -1,9 +1,14 @@
 #include "Password.h"
+#include "ListArray.h"
+#include "String.h"
+#include "ListArrayIterator.h"
 using CSC2110::ListArrayIterator;
 
 #include <iostream>
 using namespace std;
 
+using CSC2110::String;
+using CSC2110::ListArray;
 
 
 Password::Password()
@@ -49,20 +54,21 @@ void guess(int try_password, int num_matches)
 	
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
-	String* attempted_password = all_words[try_password];
+	String* attempted_password = all_words[try_password-1];
 	// This is the an iterator of viable words, right? I can't remember what he said, but it makes since. --KEB
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	while(viable_pass_iterator->hasNext())
 	{
 		//I have no doubt that an iterator can be used here, but I'm not sure how since the text array in string is a single pointer. Any suggestions? --KEB
-		for(int i = 0; i < len; i++)
+		int i;
+		for(i = 0; i < len; i++)
 		{
 			//if the characters at the same place equal each other, iterate the counter
-			attempt_password->charAt(i) = (viable_pass_iterator->next())->charAt(i);
+			if (attempt_password->charAt(i) == (viable_pass_iterator->next())->charAt(i))
 			num_matches_in_word++;
 		}
 		//I am assuming num_matches is equal to the number alike characters at i --KEB
-		if(num_matches_in_word == num_matches)
+		if(num_matches_in_word != num_matches)
 		{
 			//remove the word --KEB
 			viable_words->remove(i);
