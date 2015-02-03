@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+using CSC2110::ReadFile;
 ReadFile::ReadFile(const char* file_name)
 {
    input_file = new std::ifstream();
@@ -41,3 +42,4 @@ String* ReadFile::readLine()
    String* str = new String((const char*) text.c_str());
    return str;
 }
+
