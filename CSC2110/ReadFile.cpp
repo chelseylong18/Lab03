@@ -1,8 +1,10 @@
 #include "ReadFile.h"
 #include <iostream>
 #include <string>
+#include "Text.h"
 
 using CSC2110::ReadFile;
+using CSC2110::String;
 ReadFile::ReadFile(const char* file_name)
 {
    input_file = new std::ifstream();
