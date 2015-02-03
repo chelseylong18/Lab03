@@ -13,14 +13,14 @@ using CSC2110::ListArray;
 
 Password::Password()
 {
-	viable_words = new ListArray<String>();
-	all_words = new ListArray<String>();
+	ListArray<String>* viable_words = new ListArray<String>();
+	ListArray<String>* all_words = new ListArray<String>();
 }
 
 Password::~Password()
 {
 	//We use the regular delete right(?), not the array delete since we are deleting a pointer to a listarray object. 
-	delete viable_word;
+	delete viable_words;
 	delete all_words;
 }
 
@@ -35,7 +35,7 @@ void Password::addWord(String* word)
 	//We had to check if the current word had the same length as the first word, right? If not, remove the check. --KEB
 	if(word->length() == len)
 	{
-		viable_word->add(word);
+		viable_words->add(word);
 		all_words->add(word);
 	}
 	
@@ -64,7 +64,7 @@ void Password::guess(int try_password, int num_matches)
 		for(i = 0; i < len; i++)
 		{
 			//if the characters at the same place equal each other, iterate the counter
-			if (attempt_password->charAt(i) == (viable_pass_iterator->next())->charAt(i))
+			if (attempted_password->charAt(i) == (viable_pass_iterator->next())->charAt(i))
 			num_matches_in_word++;
 		}
 		//I am assuming num_matches is equal to the number alike characters at i --KEB
