@@ -41,7 +41,22 @@ void guess(int try_password, int num_matches)
 	
 }
 
+int Password::getNumberOfPasswordsLeft()
+{
+	int num_left = viable_words->length();
+	return num_left;
+}
 
+void displayViableWords()
+{
+	
+}
+
+String* getOriginalWord(int index)
+{
+	String* word_from_original_list = all_words->get(index);
+	return word_from_original_list;
+}
 int Password::bestGuess()
 {
    int best_guess_index = -1;
