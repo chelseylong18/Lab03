@@ -1,6 +1,6 @@
 #include "Password.h"
 #include "ReadFile.h"
-#include "String.h"
+#include "Text.h"
 #include "Keyboard.h"
 
 //fill in includes, don't forget namespaces

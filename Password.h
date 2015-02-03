@@ -1,11 +1,12 @@
 #if !defined PASSWORD_H
 #define PASSWORD_H
 
-#include "String.h"
+#include "Text.h"
 #include "ListArray.h"
 
 //complete the includes
-
+using CSC2110::String;
+using CSC2110::ListArray;
 class Password
 {
    private:

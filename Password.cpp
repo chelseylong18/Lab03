@@ -1,6 +1,6 @@
 #include "Password.h"
 #include "ListArray.h"
-#include "String.h"
+#include "Text.h"
 #include "ListArrayIterator.h"
 using CSC2110::ListArrayIterator;
 using CSC2110::String;
