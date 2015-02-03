@@ -6,13 +6,40 @@ using namespace std;
 
 
 
+Password::Password()
+{
+	viable_words = new ListArray<String>();
+	all_words = new ListArray<String>();
+}
 
+Password::~Password()
+{
+	//We use the regular delete right(?), not the array delete since we are deleting a pointer to a listarray object. 
+	delete viable_word;
+	delete all_words;
+}
 
+void addWord(String* word)
+{
+	//I'm not sure that this is the most efficient way to do this. I checked to see if there was anything at index 0. If not, then the length was logged. Any suggestions?? --KEB
+	if(all_words[0] == 0)
+	{
+		len = word->length();
+	}
+	
+	//We had to check if the current word had the same length as the first word, right? If not, remove the check. --KEB
+	if(word->length() == len)
+	{
+		viable_word->add(word);
+		all_words->add(word);
+	}
+	
+}
 
-
-
-
-
+void guess(int try_password, int num_matches)
+{
+	
+}
 
 
 int Password::bestGuess()
