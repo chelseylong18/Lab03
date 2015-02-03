@@ -2,12 +2,14 @@
 #include "ListArray.h"
 #include "Text.h"
 #include "ListArrayIterator.h"
+
+
+#include <iostream>
+using namespace std;
 using CSC2110::ListArrayIterator;
 using CSC2110::String;
 using CSC2110::ListArray;
 
-#include <iostream>
-using namespace std;
 
 Password::Password()
 {
@@ -22,7 +24,7 @@ Password::~Password()
 	delete all_words;
 }
 
-void addWord(String* word)
+void Password::addWord(String* word)
 {
 	//I'm not sure that this is the most efficient way to do this. I checked to see if there was anything at index 0. If not, then the length was logged. Any suggestions?? --KEB
 	if(all_words[0] == 0)
@@ -39,7 +41,7 @@ void addWord(String* word)
 	
 }
 
-void guess(int try_password, int num_matches)
+void Password::guess(int try_password, int num_matches)
 {
 	//remove try_password-1 from list
 	//we will need to get the matches and delete them from the list
@@ -80,7 +82,7 @@ int Password::getNumberOfPasswordsLeft()
 	return num_left;
 }
 
-void displayViableWords()
+void Password::displayViableWords()
 {
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	
@@ -92,7 +94,7 @@ void displayViableWords()
 	delete viable_pass_iterator;
 }
 
-String* getOriginalWord(int index)
+String* Password::getOriginalWord(int index)
 {
 	String* word_from_original_list = all_words->get(index);
 	return word_from_original_list;

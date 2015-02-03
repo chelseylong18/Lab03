@@ -7,6 +7,7 @@
 //complete the includes
 using CSC2110::String;
 using CSC2110::ListArray;
+
 class Password
 {
    private:
