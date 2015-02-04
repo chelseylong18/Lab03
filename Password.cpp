@@ -13,8 +13,8 @@ using CSC2110::ListArray;
 
 Password::Password()
 {
-	ListArray<String>* viable_words = new ListArray<String>();
-	ListArray<String>* all_words = new ListArray<String>();
+	viable_words = new ListArray<String>();
+	all_words = new ListArray<String>();
 }
 
 Password::~Password()
@@ -88,7 +88,7 @@ void Password::displayViableWords()
 	
 	while(viable_pass_iterator->hasNext())
 	{
-		(visable_pass_iterator->next())->displayString();
+		(viable_pass_iterator->next())->displayString();
 	}
 	
 	delete viable_pass_iterator;
