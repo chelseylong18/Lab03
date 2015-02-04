@@ -19,9 +19,10 @@ Password::Password()
 
 Password::~Password()
 {
-	//We use the regular delete right(?), not the array delete since we are deleting a pointer to a listarray object. 
-	delete viable_words;
-	delete all_words;
+	//We use the regular delete right(?), not the array delete since we are deleting a pointer to a listarray object.
+	//Is this right or a for loop? CL
+	delete[] viable_words;
+	delete[] all_words;
 }
 
 void Password::addWord(String* word)
@@ -46,7 +47,7 @@ void Password::guess(int try_password, int num_matches)
 	//remove try_password-1 from list
 	//we will need to get the matches and delete them from the list
 	
-	viable_words->remove(try_password-1);
+	viable_words->remove(try_password);
 	//iterate
 		//second iterate
 		//if has match, then delete
@@ -54,7 +55,7 @@ void Password::guess(int try_password, int num_matches)
 	
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
-	String* attempted_password = all_words[try_password-1];
+	String* attempted_password = all_words->get(try_password);
 	// This is the an iterator of viable words, right? I can't remember what he said, but it makes since. --KEB
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	while(viable_pass_iterator->hasNext())
@@ -78,7 +79,7 @@ void Password::guess(int try_password, int num_matches)
 
 int Password::getNumberOfPasswordsLeft()
 {
-	int num_left = viable_words->length();
+	int num_left = viable_words->size();
 	return num_left;
 }
 
