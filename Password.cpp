@@ -49,10 +49,10 @@ void Password::guess(int try_password, int num_matches)
 	
 	viable_words->remove(try_password);
 	
-	
+	int counter = 1;
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
-	String* attempted_password = all_words->get(try_password);
+	String* attempted_password = viable_words->get(try_password);
 	// This is the an iterator of viable words, right? I can't remember what he said, but it makes since. --KEB
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	while(viable_pass_iterator->hasNext())
@@ -61,11 +61,14 @@ void Password::guess(int try_password, int num_matches)
 		//I have no doubt that an iterator can be used here, but I'm not sure how since the text array in string is a single pointer. Any suggestions? --KEB
 		num_matches_in_word = getNumMatches(current_word, attempted_password);
 		//I am assuming num_matches is equal to the number alike characters at i --KEB
-		if(num_matches_in_word != num_matches)
+		if(num_matches_in_word == num_matches)
 		{
 			//remove the word --KEB
-			//viable_words->remove(viab_p);
+			//WHY IS THIS WORKING??????
+			viable_words->remove(counter);
 		}
+		
+		counter++;
 	}
 }
 
