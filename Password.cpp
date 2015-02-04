@@ -20,7 +20,7 @@ Password::Password()
 Password::~Password()
 {
 	//We use the regular delete right(?), not the array delete since we are deleting a pointer to a listarray object.
-	//Is this right or a for loop? CL
+	//Is this right or a for loop? Ask Boshart CL
 	delete[] viable_words;
 	delete[] all_words;
 }
