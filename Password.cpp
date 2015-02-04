@@ -28,7 +28,7 @@ Password::~Password()
 void Password::addWord(String* word)
 {
 	//I'm not sure that this is the most efficient way to do this. I checked to see if there was anything at index 0. If not, then the length was logged. Any suggestions?? --KEB
-	if(all_words[0] == 0)
+	if(all_words->size() == 0)
 	{
 		len = word->length();
 	}
@@ -48,10 +48,7 @@ void Password::guess(int try_password, int num_matches)
 	//we will need to get the matches and delete them from the list
 	
 	viable_words->remove(try_password);
-	//iterate
-		//second iterate
-		//if has match, then delete
-	//delete iterate
+	
 	
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
@@ -60,19 +57,14 @@ void Password::guess(int try_password, int num_matches)
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	while(viable_pass_iterator->hasNext())
 	{
+		String* current_word = viable_pass_iterator->next();
 		//I have no doubt that an iterator can be used here, but I'm not sure how since the text array in string is a single pointer. Any suggestions? --KEB
-		int i;
-		for(i = 0; i < len; i++)
-		{
-			//if the characters at the same place equal each other, iterate the counter
-			if (attempted_password->charAt(i) == (viable_pass_iterator->next())->charAt(i))
-			num_matches_in_word++;
-		}
+		num_matches_in_word = getNumMatches(current_word, attempted_password);
 		//I am assuming num_matches is equal to the number alike characters at i --KEB
 		if(num_matches_in_word != num_matches)
 		{
 			//remove the word --KEB
-			viable_words->remove(i);
+			//viable_words->remove(viab_p);
 		}
 	}
 }
@@ -90,6 +82,7 @@ void Password::displayViableWords()
 	while(viable_pass_iterator->hasNext())
 	{
 		(viable_pass_iterator->next())->displayString();
+		cout << endl;
 	}
 	
 	delete viable_pass_iterator;
@@ -159,4 +152,21 @@ int Password::bestGuess()
 
    delete all_iter;
    return best_guess_index;  //return a 1-based index into the all_words list of words (careful)
+}
+
+int Password::getNumMatches(String* curr_word, String* word_guess)
+{
+	int counter = 0; 
+	
+	//is there any way to use a listarray iterator?
+	
+	for(int i = 0; i < len; i++)
+	{
+		if(curr_word->charAt(i) == word_guess->charAt(i))
+		{
+			counter++;
+		}
+	}
+	
+	return counter;
 }
