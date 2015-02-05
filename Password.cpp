@@ -45,11 +45,11 @@ void Password::addWord(String* word)
 void Password::guess(int try_password, int num_matches)
 {
 	//remove try_password-1 from list
-	//we will need to get the matches and delete them from the list
+
 	
-	viable_words->remove(try_password);
 	
-	int counter = 1;
+	ListArray<String>* new_viable_words = new ListArray<String>;
+	
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
 	String* attempted_password = viable_words->get(try_password);
@@ -63,13 +63,22 @@ void Password::guess(int try_password, int num_matches)
 		//I am assuming num_matches is equal to the number alike characters at i --KEB
 		if(num_matches_in_word == num_matches)
 		{
-			//remove the word --KEB
-			//WHY IS THIS WORKING??????
-			viable_words->remove(counter);
+			new_viable_words->add(current_word);
+			
 		}
 		
-		counter++;
+		num_matches_in_word = 0;
 	}
+	
+	viable_words->remove(try_password);
+	
+	//cout << "About to delete first viable words...\n";
+	delete viable_words;
+	cout << "Deleted memory allocation errors. \n";
+	viable_words = new_viable_words;
+	cout << "Set viable words to temp\n";
+
+	
 }
 
 int Password::getNumberOfPasswordsLeft()
