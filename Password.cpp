@@ -52,7 +52,7 @@ void Password::guess(int try_password, int num_matches)
 	
 	int num_matches_in_word = 0;
 	//copy the attempted password --KEB
-	String* attempted_password = viable_words->get(try_password);
+	String* attempted_password = all_words->get(try_password);
 	// This is the an iterator of viable words, right? I can't remember what he said, but it makes since. --KEB
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	while(viable_pass_iterator->hasNext())
@@ -74,9 +74,9 @@ void Password::guess(int try_password, int num_matches)
 	
 	//cout << "About to delete first viable words...\n";
 	delete viable_words;
-	cout << "Deleted memory allocation errors. \n";
+	//cout << "Deleted memory allocation errors. \n";
 	viable_words = new_viable_words;
-	cout << "Set viable words to temp\n";
+	//cout << "Set viable words to temp\n";
 
 	
 }
