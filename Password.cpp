@@ -97,12 +97,14 @@ void Password::displayViableWords()
 {
 	ListArrayIterator<String>* viable_pass_iterator = viable_words->iterator();
 	
+	cout << endl;
+	
 	while(viable_pass_iterator->hasNext())
 	{
 		(viable_pass_iterator->next())->displayString();
 		cout << endl;
 	}
-	
+	cout << endl;
 	delete viable_pass_iterator;
 }
 

@@ -4,7 +4,7 @@
 #include "Keyboard.h"
 
 //fill in includes, don't forget namespaces
-
+//hi --KEB
 #include <iostream>
 using namespace std;
 using CSC2110::ReadFile;
@@ -67,5 +67,7 @@ int main()
    Password* fallout = new Password();
    addWords(fallout);
    guessWords(fallout);
+  
    delete fallout;
+  
 }
