@@ -1,4 +1,11 @@
 #if !defined PASSWORD_H
+/*
+	Lab 03. Katherine (Katie) Brown and Chelsey Long. 
+	https://github.com/chelseylong18/lab03
+	
+*/
+
+
 #define PASSWORD_H
 
 #include "Text.h"
